@@ -1,10 +1,11 @@
 """User Model."""
+from masonite_permission.mixins import HasRoles, HasPermissions
 from masoniteorm.models import Model
 from masoniteorm.scopes import SoftDeletesMixin
 from masonite.authentication import Authenticates
 
 
-class User(Model, SoftDeletesMixin, Authenticates):
+class User(Model, SoftDeletesMixin, Authenticates, HasRoles, HasPermissions):
     """User Model."""
 
     __fillable__ = ["name", "email", "password"]
