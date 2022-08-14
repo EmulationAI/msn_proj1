@@ -1,6 +1,8 @@
+from masonite.authentication import Auth
 from masonite.routes import Route
 
 ROUTES = [
-    Route.get("/", "WelcomeController@show"),
-    Route.get("/hello", "hello world")
+    Route.get("/", "auth.HomeController@show"),
 ]
+
+ROUTES += Auth.routes()
